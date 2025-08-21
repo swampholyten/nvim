@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 vim.opt.shiftwidth = 2
+vim.opt.hlsearch = false
 vim.opt.tabstop = 2
 vim.opt.smartindent = true
 vim.opt.wrap = false
