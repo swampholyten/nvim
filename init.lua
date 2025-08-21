@@ -37,7 +37,7 @@ require("mini.pairs").setup()
 require("neoscroll").setup({ duration_multiplier = 0.5 })
 require("mason").setup()
 require("fzf-lua").setup()
--- require("fzf-lua").register_ui_select()
+require("fzf-lua").register_ui_select()
 require("blink.cmp").setup({
 	keymap = { ["<CR>"] = { "accept", "fallback" } },
 	signature = { enabled = true },
