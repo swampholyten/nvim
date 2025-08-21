@@ -24,7 +24,7 @@ vim.pack.add({
 	{ src = "https://github.com/karb94/neoscroll.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/saghen/blink.cmp",              version = "1.*" },
+	{ src = "https://github.com/saghen/blink.cmp",                version = "1.*" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
