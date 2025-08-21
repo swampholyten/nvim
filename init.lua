@@ -13,14 +13,13 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
-vim.opt.winborder = "rounded"
+vim.opt.winborder = "single"
 
 vim.pack.add({
 	{ src = "https://github.com/vague2k/vague.nvim" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/kdheepak/lazygit.nvim" },
-	{ src = "https://github.com/echasnovski/mini.ai" },
 	{ src = "https://github.com/echasnovski/mini.surround" },
 	{ src = "https://github.com/echasnovski/mini.pairs" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
@@ -31,7 +30,6 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
-require("mini.ai").setup()
 require("mini.surround").setup()
 require("mini.pairs").setup()
 require("neoscroll").setup({ duration_multiplier = 0.5 })
