@@ -40,7 +40,6 @@ require("oil").setup({
 	keymaps = {
 		["<C-h>"] = false,
 		["<C-l>"] = false,
-		["<C-b>"] = { "actions.select", opts = { horizontal = true } },
 	}
 })
 
@@ -72,17 +71,18 @@ vim.keymap.set({ "n", "v" }, "<leader>d", '"+d')
 vim.keymap.set({ "n", "v" }, "<leader>g", ":LazyGit<CR>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+
 vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+vim.keymap.set("n", "<leader>q", fzf.lsp_document_diagnostics)
 vim.keymap.set("n", "<leader>Q", fzf.lsp_workspace_diagnostics)
 
-vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 vim.keymap.set("n", "gi", fzf.lsp_implementations)
 vim.keymap.set("n", "gt", fzf.lsp_typedefs)
 vim.keymap.set("n", "gd", fzf.lsp_definitions)
 vim.keymap.set("n", "gD", fzf.lsp_declarations)
-vim.keymap.set("n", "gra", fzf.lsp_code_actions)
 vim.keymap.set("n", "grr", fzf.lsp_references)
+vim.keymap.set("n", "gra", fzf.lsp_code_actions)
 
 vim.keymap.set("n", "<leader>f", fzf.files)
 vim.keymap.set("n", "<leader>s", fzf.lsp_document_symbols)
