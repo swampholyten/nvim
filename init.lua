@@ -20,7 +20,9 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/kdheepak/lazygit.nvim" },
+	{ src = "https://github.com/echasnovski/mini.ai" },
 	{ src = "https://github.com/echasnovski/mini.surround" },
+	{ src = "https://github.com/echasnovski/mini.pairs" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 	{ src = "https://github.com/karb94/neoscroll.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
@@ -29,11 +31,13 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
+require("mini.ai").setup()
 require("mini.surround").setup()
+require("mini.pairs").setup()
 require("neoscroll").setup({ duration_multiplier = 0.5 })
 require("mason").setup()
 require("fzf-lua").setup()
-require("fzf-lua").register_ui_select()
+-- require("fzf-lua").register_ui_select()
 require("blink.cmp").setup({
 	keymap = { ["<CR>"] = { "accept", "fallback" } },
 	signature = { enabled = true },
@@ -49,15 +53,9 @@ require("vague").setup({ transparent = true })
 vim.cmd("colorscheme vague")
 vim.cmd("hi statusline guibg=NONE")
 
-vim.lsp.enable({ "rust_analyzer", "lua_ls", "vtsls", "clangd" })
+vim.lsp.enable({ "rust_analyzer", "lua_ls", "vtsls", "tailwindcss", "html", "clangd", })
 
 local fzf = require("fzf-lua")
-
-vim.keymap.set("i", "(", "()<Left>")
-vim.keymap.set("i", "[", "[]<Left>")
-vim.keymap.set("i", "{", "{}<Left>")
-vim.keymap.set("i", '"', '""<Left>')
-vim.keymap.set("i", "`", "``<Left>")
 
 vim.keymap.set("n", "<leader>wo", ":wincmd c<CR>")
 vim.keymap.set("n", "<leader>ww", ":wincmd w<CR>")
