@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.opt.timeoutlen = 300
+vim.opt.updatetime = 250
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.smartindent = true
