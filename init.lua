@@ -19,19 +19,14 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/kdheepak/lazygit.nvim" },
-	{ src = "https://github.com/echasnovski/mini.surround" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
-	{ src = "https://github.com/karb94/neoscroll.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/saghen/blink.cmp",                version = "1.*" },
+	{ src = "https://github.com/saghen/blink.cmp",              version = "1.*" },
 })
 
-require("mini.surround").setup()
-require("neoscroll").setup({ duration_multiplier = 0.5 })
 require("mason").setup()
 require("fzf-lua").setup()
-require("fzf-lua").register_ui_select()
 require("blink.cmp").setup({
 	keymap = { ["<CR>"] = { "accept", "fallback" } },
 	signature = { enabled = true },
@@ -55,32 +50,17 @@ vim.keymap.set("n", "<leader>wo", ":wincmd c<CR>")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
-vim.keymap.set({ "n", "v" }, "<leader>d", '"+d')
 
-vim.keymap.set({ "n", "v" }, "<leader>g", ":LazyGit<CR>")
+vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
-
 vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>q", fzf.lsp_document_diagnostics)
-vim.keymap.set("n", "<leader>Q", fzf.lsp_workspace_diagnostics)
 
-vim.keymap.set("n", "gi", fzf.lsp_implementations)
-vim.keymap.set("n", "gt", fzf.lsp_typedefs)
-vim.keymap.set("n", "gd", fzf.lsp_definitions)
-vim.keymap.set("n", "gD", fzf.lsp_declarations)
-vim.keymap.set("n", "grr", fzf.lsp_references)
-vim.keymap.set("n", "gra", fzf.lsp_code_actions)
-
-vim.keymap.set("n", "<leader>f", fzf.files)
+vim.keymap.set("n", "<leader>q", fzf.diagnostics_document)
+vim.keymap.set("n", "<leader>Q", fzf.diagnostics_workspace)
 vim.keymap.set("n", "<leader>s", fzf.lsp_document_symbols)
+vim.keymap.set("n", "<leader>f", fzf.files)
 vim.keymap.set("n", "<leader><leader>", fzf.buffers)
 vim.keymap.set("n", "<leader>/", fzf.live_grep)
 vim.keymap.set("n", "<leader>r", fzf.oldfiles)
-
-vim.keymap.set("n", "gK", function()
-	local current_config = vim.diagnostic.config()
-	local new_virtual_lines_setting = not current_config.virtual_lines
-	vim.diagnostic.config({ virtual_lines = new_virtual_lines_setting })
-end)
