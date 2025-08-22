@@ -51,6 +51,10 @@ vim.keymap.set("n", "<leader>wo", ":wincmd c<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
 
+vim.keymap.set("i", "{", "{}<Left>")
+vim.keymap.set("i", "(", "()<Left>")
+vim.keymap.set("i", '"', '""<Left>')
+
 vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 
