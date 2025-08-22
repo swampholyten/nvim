@@ -1,8 +1,7 @@
 vim.g.mapleader = " "
 
-vim.opt.timeoutlen = 300
-vim.opt.updatetime = 250
 vim.opt.shiftwidth = 2
+vim.opt.hlsearch = false
 vim.opt.tabstop = 2
 vim.opt.smartindent = true
 vim.opt.wrap = false
@@ -21,6 +20,7 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/kdheepak/lazygit.nvim" },
+	{ src = "https://github.com/echasnovski/mini.surround" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
@@ -28,6 +28,7 @@ vim.pack.add({
 })
 
 require("mason").setup()
+require("mini.surround").setup()
 require("fzf-lua").setup()
 require("blink.cmp").setup({
 	keymap = { ["<CR>"] = { "accept", "fallback" } },
