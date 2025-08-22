@@ -53,6 +53,8 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
 
 vim.keymap.set("i", "{", "{}<Left>")
 vim.keymap.set("i", "(", "()<Left>")
+vim.keymap.set("i", "[", "[]<Left>")
+vim.keymap.set("i", "`", "``<Left>")
 vim.keymap.set("i", '"', '""<Left>')
 
 vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
